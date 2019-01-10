@@ -5,5 +5,8 @@
     "browser": true,
     "jest": true,
     "node": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": 0
   }
 }
