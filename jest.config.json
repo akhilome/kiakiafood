@@ -1,4 +1,7 @@
 {
   "setupFiles": ["<rootDir>/src/tests/setupTests.js"],
-  "snapshotSerializers": ["enzyme-to-json/serializer"]
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/src/tests/__mocks__/styleMock.js"
+  }
 }
