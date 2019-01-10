@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const LoginPage = () => (
   <div>
-    This is the login page See
-    {' '}
-    <Link to="/signup">signup</Link>
+    This is the login page.
+    <br />
+    <Link to="/">Go Home</Link>
   </div>
 );
 

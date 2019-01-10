@@ -2,6 +2,24 @@
 
 exports[`HomePage component should render homepage correctly 1`] = `
 <div>
-  This is the HomePage!
+  <Nav />
+  <section
+    className="hero"
+  >
+    <h2>
+      Quell Your Hunger in Minutes
+    </h2>
+    <Link
+      replace={false}
+      to="/menu"
+    >
+      <button
+        className="btn-primary"
+        type="button"
+      >
+        Get Food ⟶
+      </button>
+    </Link>
+  </section>
 </div>
 `;
