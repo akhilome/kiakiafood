@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./dist/server.js",
+    "build:server": "babel server.js -d dist",
+    "build": "webpack --config webpack.config.prod.js && npm run build:server",
+    "heroku-postbuild": "npm run build",
+    "dev": "webpack-dev-server --open --config webpack.config.dev.js",
+    "dev:hot": "npm run dev -- --hot",
     "test": "jest --config=jest.config.json",
     "test:watch": "npm test -- --watch",
     "coverage": "npm run test -- --coverage",
-    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "webpack --config webpack.config.prod.js",
-    "dev": "webpack-dev-server --open --config webpack.config.dev.js",
-    "dev:hot": "npm run dev -- --hot"
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
   },
   "homepage": "https://github.com/akhilome/kiakiafood#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
