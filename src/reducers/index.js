@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux';
+import auth from './authReducer';
+import fetch from './fetchReducer';
 
 export default combineReducers({
-  lorem: () => 'ipsum',
+  user: auth,
+  fetching: fetch,
 });
