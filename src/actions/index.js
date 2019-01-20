@@ -44,3 +44,19 @@ export const checkAuthStatus = () => {
     return { type: actionTypes.CHECK_AUTH_STATUS_FAIL };
   }
 };
+
+export const getMenu = () => async (dispatch) => {
+  dispatch(startFetching());
+  try {
+    const { menu } = (await axios.get('/menu')).data;
+    dispatch({
+      type: actionTypes.GET_MENU,
+      payload: { menu },
+    });
+    return dispatch(stopFetching());
+  } catch (error) {
+    return dispatch(
+      stopFetching(false, error.response ? error.response.data.message : 'something went wrong'),
+    );
+  }
+};
