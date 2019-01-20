@@ -1,14 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+
 import { SignupPage } from '../../components/SignupPage';
 import { mountWrap } from '../helpers/contextWrapper';
-
-const updateInput = (wrapper, instance, newValue) => {
-  const input = wrapper.find(instance);
-  input.simulate('change', {
-    target: { value: newValue },
-  });
-};
+import { updateInput } from '../helpers';
 
 describe('SignupPage Component', () => {
   const props = {

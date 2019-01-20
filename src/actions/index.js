@@ -33,6 +33,27 @@ export const signUpUser = userData => async (dispatch) => {
   }
 };
 
+export const logInUser = userData => async (dispatch) => {
+  dispatch(startFetching());
+  try {
+    const { status, user } = (await axios.post('/auth/login', userData)).data;
+    if (status === 'success') saveToken(user.auth_token);
+    const { userName: name, userStatus: role } = jwt.decode(user.auth_token);
+    dispatch({
+      type: actionTypes.LOG_IN,
+      payload: {
+        name,
+        role,
+      },
+    });
+    return dispatch(stopFetching());
+  } catch (error) {
+    return dispatch(
+      stopFetching(false, error.response ? error.response.data.message : 'something went wrong'),
+    );
+  }
+};
+
 export const checkAuthStatus = () => {
   try {
     const { userName: name, userStatus: role } = jwt.decode(getToken());

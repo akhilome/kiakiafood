@@ -1,4 +1,4 @@
-import actionsTypes from '../actions/types';
+import types from '../actions/types';
 
 const initialState = {
   isLoggedIn: null,
@@ -8,15 +8,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionsTypes.SIGN_UP:
-    case actionsTypes.CHECK_AUTH_STATUS:
+    case types.SIGN_UP:
+    case types.LOG_IN:
+    case types.CHECK_AUTH_STATUS:
       return {
         ...state,
         isLoggedIn: true,
         name: action.payload.name,
         role: action.payload.role,
       };
-    case actionsTypes.CHECK_AUTH_STATUS_FAIL:
+    case types.CHECK_AUTH_STATUS_FAIL:
     default:
       return state;
   }

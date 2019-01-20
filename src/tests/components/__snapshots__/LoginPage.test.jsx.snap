@@ -1,14 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoginPage should render LoginPage correctly 1`] = `
-<div>
-  This is the login page.
-  <br />
-  <Link
-    replace={false}
-    to="/"
+<Login
+  fetching={false}
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  isLoggedIn={false}
+  logInUser={[MockFunction]}
+>
+  <Nav>
+    <header
+      className="transparent"
+    >
+      <div
+        className="site-title"
+      >
+        <h2>
+          <Link
+            replace={false}
+            to="/"
+          >
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              Kiakia Food
+            </a>
+          </Link>
+        </h2>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <Link
+              replace={false}
+              to="/login"
+            >
+              <a
+                href="/login"
+                onClick={[Function]}
+              >
+                Log In
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link
+              replace={false}
+              to="/signup"
+            >
+              <a
+                href="/signup"
+                onClick={[Function]}
+              >
+                Sign Up
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </Nav>
+  <div
+    className="wrapper auth"
   >
-    Go Home
-  </Link>
-</div>
+    <section
+      className="container"
+    >
+      <h2>
+        Access Your Account
+      </h2>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Your Email Address"
+          required={true}
+          type="email"
+          value=""
+        />
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Your Password"
+          required={true}
+          type="password"
+          value=""
+        />
+        <input
+          className="btn-primary"
+          name="submit"
+          type="submit"
+          value="Log In"
+        />
+      </form>
+      <div>
+        <p>
+          No account yet?
+           
+          <Link
+            replace={false}
+            to="/signup"
+          >
+            <a
+              href="/signup"
+              onClick={[Function]}
+            >
+              Sign Up
+            </a>
+          </Link>
+        </p>
+      </div>
+    </section>
+  </div>
+</Login>
 `;
