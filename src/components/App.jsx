@@ -7,6 +7,7 @@ import { checkAuthStatus } from '../actions';
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
 import Signup from './SignupPage';
+import Menu from './MenuPage';
 import NotFoundPage from './NotFoundPage';
 
 export class App extends Component {
@@ -22,6 +23,7 @@ export class App extends Component {
           <Route path="/" exact component={HomePage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={Signup} />
+          <Route path="/menu" component={Menu} />
           <Route component={NotFoundPage} />
         </Switch>
       </Router>

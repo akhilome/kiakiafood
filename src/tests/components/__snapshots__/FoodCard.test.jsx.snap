@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Food Card Component should render correctly for admin 1`] = `
+<div
+  className="food-card"
+>
+  <img
+    alt="final fantasy"
+    className="food-image"
+    src="some.img"
+  />
+  <div
+    className="food-details"
+  >
+    <div
+      className="food-details__legend"
+      data-foodid={69}
+    >
+      <h4>
+        final fantasy
+      </h4>
+      <p>
+        ₦
+        1,996
+      </p>
+    </div>
+    <div
+      className="food-details__action"
+    >
+      <button
+        type="button"
+      >
+        delete
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Food Card Component should render correctly for customer 1`] = `
+<div
+  className="food-card"
+>
+  <img
+    alt="final fantasy"
+    className="food-image"
+    src="some.img"
+  />
+  <div
+    className="food-details"
+  >
+    <div
+      className="food-details__legend"
+      data-foodid={69}
+    >
+      <h4>
+        final fantasy
+      </h4>
+      <p>
+        ₦
+        1,996
+      </p>
+    </div>
+    <div
+      className="food-details__action"
+    >
+      <button
+        type="button"
+      >
+        buy
+      </button>
+    </div>
+  </div>
+</div>
+`;
