@@ -18,3 +18,7 @@ const createContext = () => ({
 
 export const mountWrap = node => mount(node, createContext());
 export const shallowWrap = node => shallow(node, createContext());
+
+/*
+  Credit: https://stackoverflow.com/a/50438273
+*/
