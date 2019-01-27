@@ -11,7 +11,7 @@ import Menu from './MenuPage';
 import CartPage from './Cart';
 import NotFoundPage from './NotFoundPage';
 import Loader from './Loader';
-import Nav from './Nav';
+import NavBar from './Nav';
 
 export class App extends Component {
   async componentDidMount() {
@@ -27,7 +27,7 @@ export class App extends Component {
       <Router>
         <Fragment>
           {loading && <Loader />}
-          <Nav />
+          <NavBar />
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" component={LoginPage} />

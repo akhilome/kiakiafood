@@ -14,7 +14,7 @@ describe('logInUser()', () => {
   it('should login user successfully', async () => {
     jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve(response));
     await logInUser()(dispatch);
-    expect(dispatch).toHaveBeenCalledTimes(3);
+    expect(dispatch).toHaveBeenCalledTimes(4);
     expect(dispatch.mock.calls[1][0]).toEqual({
       payload: { name: 'jamjum', role: 'customer' },
       type: 'LOG_IN',

@@ -2,8 +2,9 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import LogoutLink from './Logout';
 
-const Nav = ({ isLoggedIn, role }) => {
+export const Nav = ({ isLoggedIn, role }) => {
   const navContent = () => {
     if (isLoggedIn && role === 'customer') {
       return (
@@ -15,7 +16,7 @@ const Nav = ({ isLoggedIn, role }) => {
             <Link to="/cart">Cart</Link>
           </li>
           <li>
-            <Link to="/logout">Logout</Link>
+            <LogoutLink />
           </li>
         </Fragment>
       );
