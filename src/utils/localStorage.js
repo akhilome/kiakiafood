@@ -3,3 +3,4 @@ export const saveToken = (token) => {
 };
 
 export const getToken = () => window.localStorage.getItem('kiakiafoodToken') || '';
+export const removeToken = () => window.localStorage.removeItem('kiakiafoodToken');

@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import axios from '../services/axios';
 import types from './types';
-import { saveToken, getToken } from '../utils/localStorage';
+import { saveToken, getToken, removeToken } from '../utils/localStorage';
 import jwt from '../utils/jwt';
 
 export const startFetching = () => ({ type: types.START_FETCHING });
@@ -14,6 +14,11 @@ export const stopFetching = (fetchSuccess = true, message = '') => ({
     message,
   },
 });
+
+export const getCart = () => {
+  const cart = JSON.parse(localStorage.getItem('cart')) || {};
+  return { type: types.GET_CART, payload: cart };
+};
 
 export const signUpUser = userData => async (dispatch) => {
   dispatch(startFetching());
@@ -50,6 +55,7 @@ export const logInUser = userData => async (dispatch) => {
         role,
       },
     });
+    dispatch(getCart());
     return dispatch(stopFetching());
   } catch (error) {
     toast.error(error.response ? error.response.data.message : 'something went wrong');
@@ -100,17 +106,14 @@ export const addToCart = ({ foodId, foodName, foodPrice }) => {
   return { type: types.ADD_TO_CART_FAIL };
 };
 
-export const getCart = () => {
-  const cart = JSON.parse(localStorage.getItem('cart')) || {};
-  return { type: types.GET_CART, payload: cart };
-};
-
 export const removeFromCart = (foodId) => {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
   const updatedCart = omit(cart, foodId);
   localStorage.setItem('cart', JSON.stringify(updatedCart));
   return { type: types.REMOVE_FROM_CART, payload: { foodId } };
 };
+
+export const emptyCart = () => ({ type: types.EMPTY_CART });
 
 export const checkout = foodIds => async (dispatch) => {
   dispatch(startFetching());
@@ -126,4 +129,10 @@ export const checkout = foodIds => async (dispatch) => {
       stopFetching(false, error.response ? error.response.data.message : 'something went wrong'),
     );
   }
+};
+
+export const logout = () => (dispatch) => {
+  dispatch(emptyCart());
+  removeToken();
+  return dispatch({ type: types.LOGOUT });
 };

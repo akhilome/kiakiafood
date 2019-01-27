@@ -10,6 +10,7 @@ export default (state = {}, action) => {
     case types.REMOVE_FROM_CART:
       return omit(state, action.payload.foodId);
     case types.CHECKOUT:
+    case types.EMPTY_CART:
       return {};
     case types.ADD_TO_CART_FAIL:
     case types.CHECKOUT_FAIL:

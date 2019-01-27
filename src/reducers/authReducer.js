@@ -17,6 +17,8 @@ export default (state = initialState, action) => {
         name: action.payload.name,
         role: action.payload.role,
       };
+    case types.LOGOUT:
+      return initialState;
     case types.CHECK_AUTH_STATUS_FAIL:
     default:
       return state;

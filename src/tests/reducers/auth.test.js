@@ -6,6 +6,12 @@ const initialState = {
   role: '',
 };
 
+const loggedInState = {
+  isLoggedIn: true,
+  name: 'Mike',
+  role: 'customer',
+};
+
 const signupAction = {
   type: 'SIGN_UP',
   payload: {
@@ -30,6 +36,8 @@ const checkAuthStatusSuccessAction = {
   },
 };
 
+const logoutAction = { type: 'LOGOUT' };
+
 const checkAuthStatusFailureAction = { type: 'CHECK_AUTH_STATUS_FAIL' };
 
 describe('auth reducer', () => {
@@ -53,6 +61,11 @@ describe('auth reducer', () => {
 
   it('should return correct state for checking user auth status failure', () => {
     const state = authReducer(initialState, checkAuthStatusFailureAction);
+    expect({ ...state }).toEqual({ ...initialState });
+  });
+
+  it('should return correct state for user logout', () => {
+    const state = authReducer(loggedInState, logoutAction);
     expect({ ...state }).toEqual({ ...initialState });
   });
 });
