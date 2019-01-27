@@ -1,87 +1,127 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component should render app correctly 1`] = `
-<App
-  checkAuthStatus={
-    [MockFunction] {
-      "calls": Array [
-        Array [],
-      ],
-      "results": Array [
-        Object {
-          "isThrow": false,
-          "value": undefined,
-        },
-      ],
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
     }
   }
 >
-  <BrowserRouter>
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
+  <App
+    checkAuthStatus={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
           },
-          "push": [Function],
-          "replace": [Function],
-        }
+        ],
       }
-    >
-      <Switch>
-        <Route
-          component={[Function]}
-          computedMatch={
-            Object {
-              "isExact": true,
-              "params": Object {},
-              "path": "/",
-              "url": "/",
-            }
-          }
-          exact={true}
-          location={
-            Object {
+    }
+    getCart={[MockFunction]}
+    isLoggedIn={false}
+    loading={false}
+  >
+    <BrowserRouter>
+      <Router
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
               "hash": "",
               "pathname": "/",
               "search": "",
               "state": undefined,
-            }
+            },
+            "push": [Function],
+            "replace": [Function],
           }
-          path="/"
-        >
-          <HomePage
-            history={
+        }
+      >
+        <Connect(Nav)>
+          <Nav
+            dispatch={[Function]}
+            isLoggedIn={null}
+            role=""
+          >
+            <header>
+              <div
+                className="site-title"
+              >
+                <h2>
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    <a
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Kiakia Food
+                    </a>
+                  </Link>
+                </h2>
+              </div>
+              <nav>
+                <ul>
+                  <li>
+                    <Link
+                      replace={false}
+                      to="/login"
+                    >
+                      <a
+                        href="/login"
+                        onClick={[Function]}
+                      >
+                        Log In
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      replace={false}
+                      to="/signup"
+                    >
+                      <a
+                        href="/signup"
+                        onClick={[Function]}
+                      >
+                        Sign Up
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+          </Nav>
+        </Connect(Nav)>
+        <Switch>
+          <Route
+            component={[Function]}
+            computedMatch={
               Object {
-                "action": "POP",
-                "block": [Function],
-                "createHref": [Function],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-                "push": [Function],
-                "replace": [Function],
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
               }
             }
+            exact={true}
             location={
               Object {
                 "hash": "",
@@ -90,69 +130,46 @@ exports[`App component should render app correctly 1`] = `
                 "state": undefined,
               }
             }
-            match={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
-            }
+            path="/"
           >
-            <div>
-              <Nav>
-                <header
-                  className="transparent"
-                >
-                  <div
-                    className="site-title"
-                  >
-                    <h2>
-                      <Link
-                        replace={false}
-                        to="/"
-                      >
-                        <a
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          Kiakia Food
-                        </a>
-                      </Link>
-                    </h2>
-                  </div>
-                  <nav>
-                    <ul>
-                      <li>
-                        <Link
-                          replace={false}
-                          to="/login"
-                        >
-                          <a
-                            href="/login"
-                            onClick={[Function]}
-                          >
-                            Log In
-                          </a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          replace={false}
-                          to="/signup"
-                        >
-                          <a
-                            href="/signup"
-                            onClick={[Function]}
-                          >
-                            Sign Up
-                          </a>
-                        </Link>
-                      </li>
-                    </ul>
-                  </nav>
-                </header>
-              </Nav>
+            <HomePage
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+            >
               <section
                 className="hero"
               >
@@ -176,11 +193,218 @@ exports[`App component should render app correctly 1`] = `
                   </a>
                 </Link>
               </section>
-            </div>
-          </HomePage>
-        </Route>
-      </Switch>
-    </Router>
-  </BrowserRouter>
-</App>
+            </HomePage>
+          </Route>
+        </Switch>
+      </Router>
+    </BrowserRouter>
+  </App>
+</Provider>
+`;
+
+exports[`App component should render app correctly for authenticated customers 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <App
+    checkAuthStatus={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    getCart={[MockFunction]}
+    isLoggedIn={true}
+    loading={false}
+  >
+    <BrowserRouter>
+      <Router
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+      >
+        <Connect(Nav)>
+          <Nav
+            dispatch={[Function]}
+            isLoggedIn={null}
+            role=""
+          >
+            <header>
+              <div
+                className="site-title"
+              >
+                <h2>
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    <a
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Kiakia Food
+                    </a>
+                  </Link>
+                </h2>
+              </div>
+              <nav>
+                <ul>
+                  <li>
+                    <Link
+                      replace={false}
+                      to="/login"
+                    >
+                      <a
+                        href="/login"
+                        onClick={[Function]}
+                      >
+                        Log In
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      replace={false}
+                      to="/signup"
+                    >
+                      <a
+                        href="/signup"
+                        onClick={[Function]}
+                      >
+                        Sign Up
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+          </Nav>
+        </Connect(Nav)>
+        <Switch>
+          <Route
+            component={[Function]}
+            computedMatch={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            exact={true}
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            path="/"
+          >
+            <HomePage
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+            >
+              <section
+                className="hero"
+              >
+                <h2>
+                  Quell Your Hunger in Minutes
+                </h2>
+                <Link
+                  replace={false}
+                  to="/menu"
+                >
+                  <a
+                    href="/menu"
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="btn-primary"
+                      type="button"
+                    >
+                      Get Food ⟶
+                    </button>
+                  </a>
+                </Link>
+              </section>
+            </HomePage>
+          </Route>
+        </Switch>
+      </Router>
+    </BrowserRouter>
+  </App>
+</Provider>
 `;

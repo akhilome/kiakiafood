@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cart /> should render correctly 1`] = `
+<Cart
+  cart={
+    Object {
+      "1": Object {
+        "foodName": "Sweet food",
+        "foodPrice": 829,
+      },
+      "2": Object {
+        "foodName": "Ugly plantain",
+        "foodPrice": 129,
+      },
+    }
+  }
+  checkout={[MockFunction]}
+  fetching={
+    Object {
+      "errorMessage": "",
+      "fetching": false,
+    }
+  }
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  removeFromCart={[MockFunction]}
+>
+  <div
+    className="wrapper"
+  >
+    <h2>
+      Items To Be Purchased
+    </h2>
+    <section
+      className="container checkout"
+    >
+      <CheckOutCard
+        buttonCallback={[Function]}
+        foodName="Sweet food"
+        foodPrice={829}
+        id={1}
+        key="1"
+      >
+        <div
+          className="food-card-checkout"
+          data-foodid={1}
+        >
+          <div
+            className="food-card-checkout__details"
+          >
+            <h4>
+              Sweet food
+            </h4>
+            <p>
+              ₦
+              829
+            </p>
+          </div>
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            Remove
+          </button>
+        </div>
+      </CheckOutCard>
+      <CheckOutCard
+        buttonCallback={[Function]}
+        foodName="Ugly plantain"
+        foodPrice={129}
+        id={2}
+        key="2"
+      >
+        <div
+          className="food-card-checkout"
+          data-foodid={2}
+        >
+          <div
+            className="food-card-checkout__details"
+          >
+            <h4>
+              Ugly plantain
+            </h4>
+            <p>
+              ₦
+              129
+            </p>
+          </div>
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            Remove
+          </button>
+        </div>
+      </CheckOutCard>
+    </section>
+    <div
+      className="order-price"
+    >
+      <p>
+        <strong>
+          total price
+        </strong>
+        : ₦
+        <span
+          id="order-price"
+        >
+          958
+        </span>
+      </p>
+    </div>
+    <button
+      className="btn-primary"
+      id="checkout"
+      onClick={[Function]}
+      type="button"
+    >
+      Checkout
+    </button>
+  </div>
+</Cart>
+`;

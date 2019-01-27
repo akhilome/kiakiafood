@@ -1,24 +1,76 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Nav = () => (
-  <header className="transparent">
-    <div className="site-title">
-      <h2>
-        <Link to="/">Kiakia Food</Link>
-      </h2>
-    </div>
-    <nav>
-      <ul>
+const Nav = ({ isLoggedIn, role }) => {
+  const navContent = () => {
+    if (isLoggedIn && role === 'customer') {
+      return (
+        <Fragment>
+          <li>
+            <Link to="/menu">Menu</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </Fragment>
+      );
+    }
+
+    if (isLoggedIn && role === 'admin') {
+      return (
+        <Fragment>
+          <li>
+            <Link to="/admin">adminer</Link>
+          </li>
+          <li>
+            <Link to="/admining">adminest</Link>
+          </li>
+        </Fragment>
+      );
+    }
+
+    return (
+      <Fragment>
         <li>
           <Link to="/login">Log In</Link>
         </li>
         <li>
           <Link to="/signup">Sign Up</Link>
         </li>
-      </ul>
-    </nav>
-  </header>
-);
+      </Fragment>
+    );
+  };
+  return (
+    <header>
+      <div className="site-title">
+        <h2>
+          <Link to="/">Kiakia Food</Link>
+        </h2>
+      </div>
+      <nav>
+        <ul>{navContent()}</ul>
+      </nav>
+    </header>
+  );
+};
 
-export default Nav;
+Nav.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  role: PropTypes.string.isRequired,
+};
+
+Nav.defaultProps = {
+  isLoggedIn: false,
+};
+
+const mapStateToProps = state => ({
+  isLoggedIn: state.user.isLoggedIn,
+  role: state.user.role,
+});
+
+export default connect(mapStateToProps)(Nav);

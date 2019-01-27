@@ -1,6 +1,9 @@
 body {
-  background: #fff;
-  color: #333;
+  background: url('https://i.imgur.com/zDMLgBX.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   line-height: 1.75;
@@ -15,41 +18,24 @@ header {
   justify-content: space-between;
   padding: 5px 20px;
   text-transform: lowercase;
-}
-
-header.transparent {
-  position: absolute;
   width: calc(100% - 40px);
 }
 
-header.transparent .site-title a {
-  color: #fff;
-}
-
-header.transparent nav a {
-  color: #fff;
-}
-
-header.transparent nav a:hover {
-  color: #fff;
-  background: rgba(41, 152, 111, 0.5);
-}
-
 .site-title a {
-  color: #1d6b4f;
+  color: #fff;
   font-size: 1.8rem;
   letter-spacing: -2px;
 }
 
 nav a {
   border-radius: 6px;
-  color: #333;
+  color: #fff;
   padding: 8px 10px;
 }
 
 nav a:hover {
-  color: #1d6b4f;
-  background: rgba(41, 152, 111, 0.226);
+  color: #fff;
+  background: rgba(41, 152, 111, 0.5);
 }
 
 nav ul {
@@ -122,14 +108,9 @@ img.food {
 /* Frontpage Hero Section */
 .hero {
   align-items: center;
-  background: url('https://i.imgur.com/zDMLgBX.jpg');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #fff;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   justify-content: center;
   padding: 0 30px;
 }
@@ -140,50 +121,16 @@ img.food {
   text-align: center;
 }
 
-/* Login & Sign Up Pages*/
-body.auth {
-  background: url('https://i.imgur.com/zDMLgBX.jpg');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #fff;
-}
-
-div.auth {
-  min-height: 100vh;
-  justify-content: center;
-}
-
-/* Flash Messages */
-.flash-message {
-  width: 100%;
-  text-align: center;
-  height: 25px;
-  position: fixed;
-  background: #17a2b8;
-  padding: 20px 25px;
-  color: #fff;
-  font-family: 'Comfortaa', cursive;
-  font-size: 16px;
-  border-radius: 4px;
-  transition: all 0.5s ease-in-out;
-  top: calc(100vh - 65px);
-}
-
-.flash-message_success {
-  background: #1d6b4f;
-}
-
-.flash-message_error {
-  background: #b82e33;
-}
-
 /* Wrapper */
 .wrapper {
   align-items: center;
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 200px);
+}
+
+.wrapper.auth {
+  justify-content: center;
 }
 
 .container {
@@ -304,6 +251,7 @@ fieldset > div {
 
 .food-card-checkout {
   align-items: center;
+  background: #2a9971;
   border: 1px solid #2a9971;
   border-radius: 4px;
   display: flex;
@@ -327,6 +275,14 @@ fieldset > div {
   background: #b82e33;
   font-size: 12px;
   padding: 8px 12px;
+}
+
+.order-price {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px dashed;
+  border-radius: 4px;
+  margin: 10px auto;
+  padding: 0 20px;
 }
 
 /* Order History */
@@ -528,6 +484,34 @@ footer {
   .nav-mobile {
     display: block;
   }
+}
+
+/* Toasts */
+.Toastify__toast {
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 10px 20px;
+}
+
+.Toastify__toast--error {
+  background: #b82e33;
+}
+
+.loader {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.loader > img {
+  height: 90px;
+  width: 90px;
 }
 
 @media only screen and (max-width: 480px) {

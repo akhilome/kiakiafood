@@ -1,25 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePage component should render homepage correctly 1`] = `
-<div>
-  <Nav />
-  <section
-    className="hero"
+<section
+  className="hero"
+>
+  <h2>
+    Quell Your Hunger in Minutes
+  </h2>
+  <Link
+    replace={false}
+    to="/menu"
   >
-    <h2>
-      Quell Your Hunger in Minutes
-    </h2>
-    <Link
-      replace={false}
-      to="/menu"
+    <button
+      className="btn-primary"
+      type="button"
     >
-      <button
-        className="btn-primary"
-        type="button"
-      >
-        Get Food ⟶
-      </button>
-    </Link>
-  </section>
-</div>
+      Get Food ⟶
+    </button>
+  </Link>
+</section>
 `;

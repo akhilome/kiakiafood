@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signUpUser } from '../actions';
-import Nav from './Nav';
 
 export class SignupPage extends Component {
   state = {
@@ -41,64 +40,61 @@ export class SignupPage extends Component {
       name, email, password, confirmPassword, adminSecret,
     } = this.state;
     return (
-      <Fragment>
-        <Nav />
-        <div className="wrapper auth">
-          <section className="container">
-            <h2>Create An Account</h2>
+      <div className="wrapper auth">
+        <section className="container">
+          <h2>Create An Account</h2>
 
-            <form onSubmit={this.onFormSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your full name"
-                value={name}
-                onChange={e => this.setState({ name: e.target.value })}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email Address"
-                value={email}
-                onChange={e => this.setState({ email: e.target.value })}
-                required
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Choose Password"
-                value={password}
-                onChange={e => this.setState({ password: e.target.value })}
-                required
-              />
-              <input
-                type="password"
-                name="password-confirm"
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={e => this.setState({ confirmPassword: e.target.value })}
-                required
-              />
-              <input
-                type="password"
-                name="admin-secret"
-                placeholder="Admin Secret [optional]"
-                value={adminSecret}
-                onChange={e => this.setState({ adminSecret: e.target.value })}
-              />
-              <input type="submit" name="submit" value="Sign Up" className="btn-primary" />
-            </form>
-            <div>
-              <p>
-                Already have an account?
-                {' '}
-                <Link to="/login">Sign In</Link>
-              </p>
-            </div>
-          </section>
-        </div>
-      </Fragment>
+          <form onSubmit={this.onFormSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your full name"
+              value={name}
+              onChange={e => this.setState({ name: e.target.value })}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email Address"
+              value={email}
+              onChange={e => this.setState({ email: e.target.value })}
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Choose Password"
+              value={password}
+              onChange={e => this.setState({ password: e.target.value })}
+              required
+            />
+            <input
+              type="password"
+              name="password-confirm"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={e => this.setState({ confirmPassword: e.target.value })}
+              required
+            />
+            <input
+              type="password"
+              name="admin-secret"
+              placeholder="Admin Secret [optional]"
+              value={adminSecret}
+              onChange={e => this.setState({ adminSecret: e.target.value })}
+            />
+            <input type="submit" name="submit" value="Sign Up" className="btn-primary" />
+          </form>
+          <div>
+            <p>
+              Already have an account?
+              {' '}
+              <Link to="/login">Sign In</Link>
+            </p>
+          </div>
+        </section>
+      </div>
     );
   }
 }
