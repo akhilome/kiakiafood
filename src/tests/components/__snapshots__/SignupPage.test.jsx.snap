@@ -1,79 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SignupPage Component should render signup page correctly 1`] = `
-<Fragment>
-  <Nav />
-  <div
-    className="wrapper auth"
+<div
+  className="wrapper auth"
+>
+  <section
+    className="container"
   >
-    <section
-      className="container"
+    <h2>
+      Create An Account
+    </h2>
+    <form
+      onSubmit={[Function]}
     >
-      <h2>
-        Create An Account
-      </h2>
-      <form
-        onSubmit={[Function]}
-      >
-        <input
-          name="name"
-          onChange={[Function]}
-          placeholder="Your full name"
-          required={true}
-          type="text"
-          value=""
-        />
-        <input
-          name="email"
-          onChange={[Function]}
-          placeholder="Your Email Address"
-          required={true}
-          type="email"
-          value=""
-        />
-        <input
-          name="password"
-          onChange={[Function]}
-          placeholder="Choose Password"
-          required={true}
-          type="password"
-          value=""
-        />
-        <input
-          name="password-confirm"
-          onChange={[Function]}
-          placeholder="Confirm Password"
-          required={true}
-          type="password"
-          value=""
-        />
-        <input
-          name="admin-secret"
-          onChange={[Function]}
-          placeholder="Admin Secret [optional]"
-          type="password"
-          value=""
-        />
-        <input
-          className="btn-primary"
-          name="submit"
-          type="submit"
-          value="Sign Up"
-        />
-      </form>
-      <div>
-        <p>
-          Already have an account?
-           
-          <Link
-            replace={false}
-            to="/login"
-          >
-            Sign In
-          </Link>
-        </p>
-      </div>
-    </section>
-  </div>
-</Fragment>
+      <input
+        name="name"
+        onChange={[Function]}
+        placeholder="Your full name"
+        required={true}
+        type="text"
+        value=""
+      />
+      <input
+        name="email"
+        onChange={[Function]}
+        placeholder="Your Email Address"
+        required={true}
+        type="email"
+        value=""
+      />
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Choose Password"
+        required={true}
+        type="password"
+        value=""
+      />
+      <input
+        name="password-confirm"
+        onChange={[Function]}
+        placeholder="Confirm Password"
+        required={true}
+        type="password"
+        value=""
+      />
+      <input
+        name="admin-secret"
+        onChange={[Function]}
+        placeholder="Admin Secret [optional]"
+        type="password"
+        value=""
+      />
+      <input
+        className="btn-primary"
+        name="submit"
+        type="submit"
+        value="Sign Up"
+      />
+    </form>
+    <div>
+      <p>
+        Already have an account?
+         
+        <Link
+          replace={false}
+          to="/login"
+        >
+          Sign In
+        </Link>
+      </p>
+    </div>
+  </section>
+</div>
 `;

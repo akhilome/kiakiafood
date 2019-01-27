@@ -2,10 +2,16 @@
 
 exports[`<MenuPage /> should render correctly 1`] = `
 <MenuPage
-  getMenu={
+  addToCart={
     [MockFunction] {
       "calls": Array [
-        Array [],
+        Array [
+          Object {
+            "foodId": 1,
+            "foodName": "40 Lake",
+            "foodPrice": 102,
+          },
+        ],
       ],
       "results": Array [
         Object {
@@ -15,6 +21,47 @@ exports[`<MenuPage /> should render correctly 1`] = `
       ],
     }
   }
+  getMenu={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  history={
+    Object {
+      "push": [MockFunction] {
+        "calls": Array [
+          Array [
+            "/login",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+    }
+  }
+  isLoggedIn={false}
   menu={
     Array [
       Object {
@@ -26,59 +73,6 @@ exports[`<MenuPage /> should render correctly 1`] = `
     ]
   }
 >
-  <Nav>
-    <header
-      className="transparent"
-    >
-      <div
-        className="site-title"
-      >
-        <h2>
-          <Link
-            replace={false}
-            to="/"
-          >
-            <a
-              href="/"
-              onClick={[Function]}
-            >
-              Kiakia Food
-            </a>
-          </Link>
-        </h2>
-      </div>
-      <nav>
-        <ul>
-          <li>
-            <Link
-              replace={false}
-              to="/login"
-            >
-              <a
-                href="/login"
-                onClick={[Function]}
-              >
-                Log In
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link
-              replace={false}
-              to="/signup"
-            >
-              <a
-                href="/signup"
-                onClick={[Function]}
-              >
-                Sign Up
-              </a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  </Nav>
   <div
     className="wrapper"
   >
@@ -89,6 +83,7 @@ exports[`<MenuPage /> should render correctly 1`] = `
       className="container food-menu"
     >
       <FoodCard
+        buttonCallback={[Function]}
         foodImage="couple.png"
         foodName="40 Lake"
         foodPrice={102}
@@ -123,6 +118,7 @@ exports[`<MenuPage /> should render correctly 1`] = `
               className="food-details__action"
             >
               <button
+                onClick={[Function]}
                 type="button"
               >
                 buy

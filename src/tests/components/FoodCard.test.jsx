@@ -10,6 +10,7 @@ describe('Food Card Component', () => {
     id: 69,
     foodPrice: 1996,
     isAdmin: false,
+    buttonCallback: jest.fn(),
   };
 
   it('should render correctly for customer', () => {

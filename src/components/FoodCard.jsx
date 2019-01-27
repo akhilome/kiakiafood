@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FoodCard = ({
-  foodImage, foodName, id, foodPrice, isAdmin,
+  foodImage, foodName, id, foodPrice, isAdmin, buttonCallback,
 }) => (
   <div className="food-card">
     <img className="food-image" src={foodImage} alt={foodName} />
@@ -15,7 +15,9 @@ const FoodCard = ({
         </p>
       </div>
       <div className="food-details__action">
-        <button type="button">{isAdmin ? 'delete' : 'buy'}</button>
+        <button onClick={buttonCallback} type="button">
+          {isAdmin ? 'delete' : 'buy'}
+        </button>
       </div>
     </div>
   </div>
@@ -27,6 +29,7 @@ FoodCard.propTypes = {
   foodPrice: PropTypes.number.isRequired,
   isAdmin: PropTypes.bool.isRequired,
   id: PropTypes.number.isRequired,
+  buttonCallback: PropTypes.func.isRequired,
 };
 
 export default FoodCard;

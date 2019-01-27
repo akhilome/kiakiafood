@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Nav from './Nav';
 import { logInUser } from '../actions';
 
 export class Login extends Component {
@@ -27,40 +26,37 @@ export class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <Fragment>
-        <Nav />
-        <div className="wrapper auth">
-          <section className="container">
-            <h2>Access Your Account</h2>
-            <form onSubmit={this.onFormSubmit}>
-              <input
-                type="email"
-                onChange={e => this.setState({ email: e.target.value })}
-                value={email}
-                name="email"
-                placeholder="Your Email Address"
-                required
-              />
-              <input
-                type="password"
-                onChange={e => this.setState({ password: e.target.value })}
-                value={password}
-                name="password"
-                placeholder="Your Password"
-                required
-              />
-              <input type="submit" name="submit" value="Log In" className="btn-primary" />
-            </form>
-            <div>
-              <p>
-                No account yet?
-                {' '}
-                <Link to="/signup">Sign Up</Link>
-              </p>
-            </div>
-          </section>
-        </div>
-      </Fragment>
+      <div className="wrapper auth">
+        <section className="container">
+          <h2>Access Your Account</h2>
+          <form onSubmit={this.onFormSubmit}>
+            <input
+              type="email"
+              onChange={e => this.setState({ email: e.target.value })}
+              value={email}
+              name="email"
+              placeholder="Your Email Address"
+              required
+            />
+            <input
+              type="password"
+              onChange={e => this.setState({ password: e.target.value })}
+              value={password}
+              name="password"
+              placeholder="Your Password"
+              required
+            />
+            <input type="submit" name="submit" value="Log In" className="btn-primary" />
+          </form>
+          <div>
+            <p>
+              No account yet?
+              {' '}
+              <Link to="/signup">Sign Up</Link>
+            </p>
+          </div>
+        </section>
+      </div>
     );
   }
 }
