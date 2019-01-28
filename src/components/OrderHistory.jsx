@@ -18,6 +18,7 @@ export class OrderHistory extends Component {
         <section className="container order-history">
           {orders.map(order => (
             <OrderCard
+              key={order.id}
               foodItems={order.items}
               orderPrice={order.price}
               orderStatus={order.status}

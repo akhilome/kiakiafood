@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 const OrderCard = ({
   foodItems, orderPrice, date, orderStatus,
 }) => {
+  const formattedFoodNames = foodItems.map(foodName => (
+    <p key={Math.random() * foodItems.length * 12039}>{foodName}</p>
+  ));
   let status;
   switch (orderStatus) {
     case 'processing':
@@ -22,11 +25,7 @@ const OrderCard = ({
     <div className="order-card">
       <div className="order-card_food-items">
         <h3>Food Item(s)</h3>
-        <div className="order-card_food-items_names">
-          {foodItems.map(foodName => (
-            <p>{foodName}</p>
-          ))}
-        </div>
+        <div className="order-card_food-items_names">{formattedFoodNames}</div>
       </div>
       <div className="order-card_price">
         <p>
