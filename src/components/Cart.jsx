@@ -13,7 +13,7 @@ export class Cart extends Component {
     const {
       fetching: { fetching, errorMessage },
     } = this.props;
-    if (!fetching && !errorMessage) return history.push('/');
+    if (!fetching && !errorMessage) return history.push('/order-history');
     return undefined;
   };
 
