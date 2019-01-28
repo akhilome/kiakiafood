@@ -6,6 +6,7 @@ import types from './types';
 import { saveToken, getToken, removeToken } from '../utils/localStorage';
 import jwt from '../utils/jwt';
 
+const errorResponse = ({ response }) => (response ? response.data.message : 'something went wrong');
 export const startFetching = () => ({ type: types.START_FETCHING });
 export const stopFetching = (fetchSuccess = true, message = '') => ({
   type: types.STOP_FETCHING,
@@ -35,10 +36,8 @@ export const signUpUser = userData => async (dispatch) => {
     });
     return dispatch(stopFetching());
   } catch (error) {
-    toast.error(error.response ? error.response.data.message : 'something went wrong');
-    return dispatch(
-      stopFetching(false, error.response ? error.response.data.message : 'something went wrong'),
-    );
+    toast.error(errorResponse(error));
+    return dispatch(stopFetching(false, errorResponse(error)));
   }
 };
 
@@ -58,10 +57,8 @@ export const logInUser = userData => async (dispatch) => {
     dispatch(getCart());
     return dispatch(stopFetching());
   } catch (error) {
-    toast.error(error.response ? error.response.data.message : 'something went wrong');
-    return dispatch(
-      stopFetching(false, error.response ? error.response.data.message : 'something went wrong'),
-    );
+    toast.error(errorResponse(error));
+    return dispatch(stopFetching(false, errorResponse(error)));
   }
 };
 
@@ -87,9 +84,7 @@ export const getMenu = () => async (dispatch) => {
     });
     return dispatch(stopFetching());
   } catch (error) {
-    return dispatch(
-      stopFetching(false, error.response ? error.response.data.message : 'something went wrong'),
-    );
+    return dispatch(stopFetching(false, errorResponse(error)));
   }
 };
 
@@ -125,9 +120,23 @@ export const checkout = foodIds => async (dispatch) => {
     return dispatch(stopFetching());
   } catch (error) {
     toast.error('Error placing your order 😢 Please try again');
-    return dispatch(
-      stopFetching(false, error.response ? error.response.data.message : 'something went wrong'),
-    );
+    return dispatch(stopFetching(false, errorResponse(error)));
+  }
+};
+
+export const getUserOrderHistory = () => async (dispatch) => {
+  dispatch(startFetching());
+  try {
+    const { userId } = jwt.decode(getToken());
+    const {
+      data: { orders },
+    } = await axios.get(`users/${userId}/orders`);
+    dispatch({ type: types.GET_ORDER_HISTORY, payload: { orders } });
+    return dispatch(stopFetching());
+  } catch (error) {
+    toast.error(errorResponse(error));
+    dispatch({ type: types.GET_ORDER_HISTORY_FAIL });
+    return dispatch(stopFetching(false, errorResponse(error)));
   }
 };
 

@@ -40,7 +40,7 @@ describe('<Cart />', () => {
     const checkoutButton = wrapper.find('#checkout');
     await checkoutButton.simulate('click');
     expect(props.checkout).toHaveBeenCalledWith([1, 2]);
-    expect(props.history.push).toHaveBeenCalledWith('/');
+    expect(props.history.push).toHaveBeenCalledWith('/order-history');
     wrapper.unmount();
   });
 

@@ -20,9 +20,10 @@ describe('<Nav />', () => {
   };
 
   it('should render correctly for admin', () => {
-    const wrapper = mount(routerWrap(<Nav {...adminProps} />));
+    const connectedComponent = reduxWrap(<Nav {...adminProps} />);
+    const wrapper = mount(routerWrap(connectedComponent));
     const links = wrapper.find('li');
-    expect(links.length).toEqual(2);
+    expect(links.length).toEqual(3);
     wrapper.unmount();
   });
 
@@ -30,7 +31,7 @@ describe('<Nav />', () => {
     const connectedComponent = reduxWrap(<Nav {...customerProps} />);
     const wrapper = mount(routerWrap(connectedComponent));
     const links = wrapper.find('li');
-    expect(links.length).toEqual(3);
+    expect(links.length).toEqual(4);
     wrapper.unmount();
   });
 

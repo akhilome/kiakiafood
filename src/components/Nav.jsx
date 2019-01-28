@@ -16,6 +16,9 @@ export const Nav = ({ isLoggedIn, role }) => {
             <Link to="/cart">Cart</Link>
           </li>
           <li>
+            <Link to="/order-history">Order History</Link>
+          </li>
+          <li>
             <LogoutLink />
           </li>
         </Fragment>
@@ -30,6 +33,9 @@ export const Nav = ({ isLoggedIn, role }) => {
           </li>
           <li>
             <Link to="/admining">adminest</Link>
+          </li>
+          <li>
+            <LogoutLink />
           </li>
         </Fragment>
       );

@@ -12,6 +12,7 @@ import CartPage from './Cart';
 import NotFoundPage from './NotFoundPage';
 import Loader from './Loader';
 import NavBar from './Nav';
+import OrderHistoryPage from './OrderHistory';
 
 export class App extends Component {
   async componentDidMount() {
@@ -34,6 +35,7 @@ export class App extends Component {
             <Route path="/signup" component={Signup} />
             <Route path="/menu" component={Menu} />
             <Route path="/cart" component={CartPage} />
+            <Route path="/order-history" component={OrderHistoryPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </Fragment>
