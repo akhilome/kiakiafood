@@ -15,7 +15,7 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 const jsx = (
   <Provider store={store}>
     <AppIndex />
-    <ToastContainer transition={Flip} position="top-center" autoClose={3500} />
+    <ToastContainer transition={Flip} position="bottom-right" autoClose={3500} />
   </Provider>
 );
 

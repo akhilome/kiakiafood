@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OrderCard = ({
-  foodItems, orderPrice, date, orderStatus,
+  foodItems, orderPrice, date, orderStatus, cancelOrderCallback,
 }) => {
   const formattedFoodNames = foodItems.map(foodName => (
     <p key={Math.random() * foodItems.length * 12039}>{foodName}</p>
@@ -48,7 +48,14 @@ const OrderCard = ({
             .join('/')}
         </p>
       </div>
-      <div className={`order-status-${status}`} />
+      <div className="order-status">
+        <div className={`order-status-${status}`} />
+        <div className="cancel-order">
+          <button className="small" type="button" onClick={cancelOrderCallback}>
+            cancel
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -58,6 +65,7 @@ OrderCard.propTypes = {
   orderPrice: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   orderStatus: PropTypes.string.isRequired,
+  cancelOrderCallback: PropTypes.func.isRequired,
 };
 
 export default OrderCard;

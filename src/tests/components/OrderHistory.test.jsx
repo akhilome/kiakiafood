@@ -37,6 +37,7 @@ describe('<OrderHistory />', () => {
   const props = {
     orders,
     getUserOrderHistory: jest.fn(),
+    cancelOrder: jest.fn(),
   };
 
   it('should render correctly', () => {
@@ -46,5 +47,14 @@ describe('<OrderHistory />', () => {
     const orderCards = wrapper.find('.order-card');
     expect(orderCards.length).toEqual(4);
     wrapper.unmount();
+  });
+
+  it('should fire cancel order action creator upon order cancellation request', () => {
+    const wrapper = mount(<OrderHistory {...props} />);
+    const fourthOrderCard = wrapper.find('.order-card').last();
+    fourthOrderCard.find('.cancel-order > button').simulate('click');
+
+    expect(props.cancelOrder).toHaveBeenCalled();
+    expect(props.cancelOrder).toHaveBeenCalledWith(4);
   });
 });

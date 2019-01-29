@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogoutLink from './Logout';
 
-export const Nav = ({ isLoggedIn, role }) => {
+export const Nav = ({ isLoggedIn, role, cartItemsCount }) => {
   const navContent = () => {
     if (isLoggedIn && role === 'customer') {
       return (
@@ -13,7 +13,11 @@ export const Nav = ({ isLoggedIn, role }) => {
             <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">
+Cart [
+              {cartItemsCount}
+]
+            </Link>
           </li>
           <li>
             <Link to="/order-history">Order History</Link>
@@ -69,15 +73,18 @@ export const Nav = ({ isLoggedIn, role }) => {
 Nav.propTypes = {
   isLoggedIn: PropTypes.bool,
   role: PropTypes.string.isRequired,
+  cartItemsCount: PropTypes.number,
 };
 
 Nav.defaultProps = {
   isLoggedIn: false,
+  cartItemsCount: 0,
 };
 
 const mapStateToProps = state => ({
   isLoggedIn: state.user.isLoggedIn,
   role: state.user.role,
+  cartItemsCount: Object.keys(state.cart).length,
 });
 
 export default connect(mapStateToProps)(Nav);

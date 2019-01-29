@@ -140,6 +140,20 @@ export const getUserOrderHistory = () => async (dispatch) => {
   }
 };
 
+export const cancelOrder = orderId => async (dispatch) => {
+  dispatch(startFetching());
+  try {
+    await axios.delete(`/orders/${orderId}`);
+    dispatch({ type: types.CANCEL_ORDER, payload: { orderId } });
+    dispatch(stopFetching());
+    return toast.success('Order cancelled successfully 🎉');
+  } catch (error) {
+    dispatch({ type: types.CANCEL_ORDER_FAIL });
+    dispatch(stopFetching(false, errorResponse(error)));
+    return toast.error(errorResponse(error));
+  }
+};
+
 export const logout = () => (dispatch) => {
   dispatch(emptyCart());
   removeToken();
