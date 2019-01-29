@@ -64,6 +64,9 @@ Cart [
         </h2>
       </div>
       <nav>
+        <button type="button" className="nav-mobile small transparent">
+          ☰ menu
+        </button>
         <ul>{navContent()}</ul>
       </nav>
     </header>
