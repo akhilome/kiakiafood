@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import OrderCard from './OrderCard';
-import { getUserOrderHistory } from '../actions';
+import { getUserOrderHistory, cancelOrder } from '../actions';
 
 export class OrderHistory extends Component {
   async componentDidMount() {
@@ -10,21 +10,31 @@ export class OrderHistory extends Component {
     await getOrderHistory();
   }
 
+  onCancelOrder = async (orderId) => {
+    const { cancelOrder: deleteOrder } = this.props;
+    await deleteOrder(Number(orderId));
+  };
+
   render() {
     const { orders } = this.props;
 
     return (
       <div className="wrapper">
         <section className="container order-history">
-          {orders.map(order => (
-            <OrderCard
-              key={order.id}
-              foodItems={order.items}
-              orderPrice={order.price}
-              orderStatus={order.status}
-              date={order.date}
-            />
-          ))}
+          {orders.length ? (
+            orders.map(order => (
+              <OrderCard
+                key={order.id}
+                foodItems={order.items}
+                orderPrice={order.price}
+                orderStatus={order.status}
+                date={order.date}
+                cancelOrderCallback={() => this.onCancelOrder(order.id)}
+              />
+            ))
+          ) : (
+            <h2>No Orders Yet!</h2>
+          )}
         </section>
       </div>
     );
@@ -34,6 +44,7 @@ export class OrderHistory extends Component {
 OrderHistory.propTypes = {
   getUserOrderHistory: PropTypes.func.isRequired,
   orders: PropTypes.instanceOf(Array).isRequired,
+  cancelOrder: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -42,5 +53,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getUserOrderHistory },
+  { getUserOrderHistory, cancelOrder },
 )(OrderHistory);

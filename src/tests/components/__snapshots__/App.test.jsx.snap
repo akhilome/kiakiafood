@@ -55,6 +55,7 @@ exports[`App component should render app correctly 1`] = `
       >
         <Connect(Nav)>
           <Nav
+            cartItemsCount={0}
             dispatch={[Function]}
             isLoggedIn={null}
             role=""
@@ -262,6 +263,7 @@ exports[`App component should render app correctly for authenticated customers 1
       >
         <Connect(Nav)>
           <Nav
+            cartItemsCount={0}
             dispatch={[Function]}
             isLoggedIn={null}
             role=""
