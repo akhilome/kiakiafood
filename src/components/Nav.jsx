@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogoutLink from './Logout';
 
-export const Nav = ({ isLoggedIn, role, cartItemsCount }) => {
-  const navContent = () => {
+export class Nav extends Component {
+  state = { showMobileMenu: false };
+
+  toggleMobileMenu = () => this.setState(prev => ({ showMobileMenu: !prev.showMobileMenu }));
+
+  navContent = () => {
+    const { isLoggedIn, role, cartItemsCount } = this.props;
     if (isLoggedIn && role === 'customer') {
       return (
         <Fragment>
@@ -56,22 +61,30 @@ Cart [
       </Fragment>
     );
   };
-  return (
-    <header>
-      <div className="site-title">
-        <h2>
-          <Link to="/">Kiakia Food</Link>
-        </h2>
-      </div>
-      <nav>
-        <button type="button" className="nav-mobile small transparent">
-          ☰ menu
-        </button>
-        <ul>{navContent()}</ul>
-      </nav>
-    </header>
-  );
-};
+
+  render() {
+    const { showMobileMenu } = this.state;
+    return (
+      <header>
+        <div className="site-title">
+          <h2>
+            <Link to="/">Kiakia Food</Link>
+          </h2>
+        </div>
+        <nav>
+          <button
+            type="button"
+            onClick={this.toggleMobileMenu}
+            className="nav-mobile small transparent"
+          >
+            ☰ menu
+          </button>
+          <ul className={showMobileMenu ? 'open' : null}>{this.navContent()}</ul>
+        </nav>
+      </header>
+    );
+  }
+}
 
 Nav.propTypes = {
   isLoggedIn: PropTypes.bool,
