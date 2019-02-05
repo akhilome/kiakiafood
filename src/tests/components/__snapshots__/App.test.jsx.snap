@@ -81,11 +81,14 @@ exports[`App component should render app correctly 1`] = `
               <nav>
                 <button
                   className="nav-mobile small transparent"
+                  onClick={[Function]}
                   type="button"
                 >
                   ☰ menu
                 </button>
-                <ul>
+                <ul
+                  className={null}
+                >
                   <li>
                     <Link
                       replace={false}
@@ -295,11 +298,14 @@ exports[`App component should render app correctly for authenticated customers 1
               <nav>
                 <button
                   className="nav-mobile small transparent"
+                  onClick={[Function]}
                   type="button"
                 >
                   ☰ menu
                 </button>
-                <ul>
+                <ul
+                  className={null}
+                >
                   <li>
                     <Link
                       replace={false}
