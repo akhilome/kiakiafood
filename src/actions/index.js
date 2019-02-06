@@ -3,7 +3,14 @@ import { toast } from 'react-toastify';
 
 import axios from '../services/axios';
 import types from './types';
-import { saveToken, getToken, removeToken } from '../utils/localStorage';
+import {
+  saveToken,
+  getToken,
+  removeToken,
+  getCartItems,
+  updateCartItems,
+  clearCartItems,
+} from '../utils/localStorage';
 import jwt from '../utils/jwt';
 
 const errorResponse = ({ response }) => (response ? response.data.message : 'something went wrong');
@@ -90,10 +97,10 @@ export const getMenu = () => async (dispatch) => {
 
 export const addToCart = ({ foodId, foodName, foodPrice }) => {
   const foodDetails = { [foodId]: { foodName, foodPrice } };
-  const cart = JSON.parse(localStorage.getItem('cart')) || {};
+  const cart = getCartItems();
   if (!Object.keys(cart).includes(`${foodId}`)) {
     const updatedCart = { ...cart, ...foodDetails };
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    updateCartItems(updatedCart);
     toast.success(`${foodName} added to cart 🚀`);
     return { type: types.ADD_TO_CART, payload: foodDetails };
   }
@@ -102,9 +109,9 @@ export const addToCart = ({ foodId, foodName, foodPrice }) => {
 };
 
 export const removeFromCart = (foodId) => {
-  const cart = JSON.parse(localStorage.getItem('cart')) || {};
+  const cart = getCartItems();
   const updatedCart = omit(cart, foodId);
-  localStorage.setItem('cart', JSON.stringify(updatedCart));
+  updateCartItems(updatedCart);
   return { type: types.REMOVE_FROM_CART, payload: { foodId } };
 };
 
@@ -114,7 +121,7 @@ export const checkout = foodIds => async (dispatch) => {
   dispatch(startFetching());
   try {
     await axios.post('/orders', { foodIds });
-    localStorage.removeItem('cart');
+    clearCartItems();
     dispatch({ type: types.CHECKOUT });
     toast.success('Order placed! 🎉');
     return dispatch(stopFetching());
