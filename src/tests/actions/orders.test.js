@@ -1,18 +1,26 @@
+import MockAdapter from 'axios-mock-adapter';
 import { getUserOrderHistory, cancelOrder } from '../../actions';
 import jwt from '../../utils/jwt';
 import axios from '../../services/axios';
+
+const axiosMock = new MockAdapter(axios);
 
 afterAll(() => jest.restoreAllMocks());
 
 describe('getUserOrderHistory', () => {
   jest.spyOn(jwt, 'decode').mockImplementation(() => ({ userId: 1 }));
   const dispatch = jest.fn();
-  const response = { data: { orders: [] } };
+  const response = { orders: [] };
 
-  afterEach(() => jest.resetAllMocks());
+  afterEach(() => {
+    jest.resetAllMocks();
+    axiosMock.reset();
+  });
+
+  afterAll(() => axiosMock.restore);
 
   it('should dispatch correct action for getUserOrderHistory success', async () => {
-    jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve(response));
+    axiosMock.onGet().replyOnce(200, response);
     await getUserOrderHistory()(dispatch);
 
     expect(jwt.decode).toHaveBeenCalled();
@@ -24,7 +32,7 @@ describe('getUserOrderHistory', () => {
   });
 
   it('should dispatch correct action for getUserOrderHistory failure', async () => {
-    jest.spyOn(axios, 'get').mockImplementation(() => Promise.reject(response));
+    axiosMock.onGet().replyOnce(400);
     await getUserOrderHistory()(dispatch);
 
     expect(dispatch).toHaveBeenCalledTimes(3);
@@ -40,11 +48,17 @@ describe('getUserOrderHistory', () => {
 
 describe('cancelOrder()', () => {
   const dispatch = jest.fn();
-  const errResponse = { response: { data: { message: 'failed to cancel order' } } };
-  afterEach(() => jest.resetAllMocks());
+  const errResponse = { message: 'failed to cancel order' };
+
+  afterEach(() => {
+    jest.resetAllMocks();
+    axiosMock.reset();
+  });
+
+  afterAll(() => axiosMock.restore);
 
   it('should dispatch correct action to cancel an order', async () => {
-    jest.spyOn(axios, 'delete').mockImplementation(() => Promise.resolve());
+    axiosMock.onDelete().replyOnce(204);
     await cancelOrder(7)(dispatch);
 
     expect(dispatch).toHaveBeenCalledTimes(3);
@@ -59,7 +73,7 @@ describe('cancelOrder()', () => {
   });
 
   it('should dispatch correct action for order cancellation failure', async () => {
-    jest.spyOn(axios, 'delete').mockImplementation(() => Promise.reject(errResponse));
+    axiosMock.onDelete().replyOnce(400, errResponse);
     await cancelOrder(2)(dispatch);
 
     expect(dispatch).toHaveBeenCalledTimes(3);
