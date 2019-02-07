@@ -306,6 +306,7 @@ fieldset > div {
   display: table;
   margin: 20px 15px;
   padding: 20px 0;
+  position: relative;
   width: 300px;
 }
 
@@ -314,8 +315,7 @@ fieldset > div {
   margin: 5px auto;
 }
 
-.order-card > *:last-child,
-.order-card > *:nth-last-child(2) {
+.order-card > *:last-child {
   border-bottom: none;
 }
 
@@ -361,6 +361,14 @@ fieldset > div {
   justify-content: flex-start;
   padding-left: 40px;
   text-align: left;
+}
+
+.order-status {
+  padding: 0 10px;
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  width: auto;
 }
 
 .order-status-new {

@@ -48,11 +48,11 @@ const OrderCard = ({
             .join('/')}
         </p>
       </div>
-      <div className="order-status">
-        <div className={`order-status-${status}`} />
+      <div>
+        <div className={`order-status order-status-${status}`} />
         <div className="cancel-order">
           <button className="small" type="button" onClick={cancelOrderCallback}>
-            cancel
+            cancel order
           </button>
         </div>
       </div>
