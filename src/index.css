@@ -17,6 +17,7 @@ header {
   font-family: 'Comfortaa', cursive;
   justify-content: space-between;
   padding: 5px 20px;
+  position: relative;
   text-transform: lowercase;
   width: calc(100% - 40px);
 }
@@ -478,7 +479,14 @@ footer {
   }
 
   header {
-    align-items: baseline;
+    align-items: flex-start;
+    min-height: 150px;
+  }
+
+  nav {
+    position: absolute;
+    top: 30px;
+    right: 25px;
   }
 
   nav ul {
