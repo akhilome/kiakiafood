@@ -6,9 +6,10 @@ import { Provider } from 'react-redux';
 
 import reducers from '../../reducers';
 
-const store = createStore(reducers, applyMiddleware(thunk));
-
-export const reduxWrap = component => <Provider store={store}>{component}</Provider>;
+export const reduxWrap = (
+  component,
+  { initialState, store = createStore(reducers, initialState, applyMiddleware(thunk)) } = {},
+) => <Provider store={store}>{component}</Provider>;
 export const routerWrap = component => <MemoryRouter>{component}</MemoryRouter>;
 
 /*

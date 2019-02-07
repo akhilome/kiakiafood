@@ -1,126 +1,135 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Cart /> should render correctly 1`] = `
-<Cart
-  cart={
+<Provider
+  store={
     Object {
-      "1": Object {
-        "foodName": "Sweet food",
-        "foodPrice": 829,
-      },
-      "2": Object {
-        "foodName": "Ugly plantain",
-        "foodPrice": 129,
-      },
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
     }
   }
-  checkout={[MockFunction]}
-  fetching={
-    Object {
-      "errorMessage": "",
-      "fetching": false,
-    }
-  }
-  history={
-    Object {
-      "push": [MockFunction],
-    }
-  }
-  removeFromCart={[MockFunction]}
 >
-  <div
-    className="wrapper"
-  >
-    <h2>
-      Items To Be Purchased
-    </h2>
-    <section
-      className="container checkout"
+  <Connect(Cart)>
+    <Cart
+      cart={
+        Object {
+          "1": Object {
+            "foodName": "Tasty Prawns",
+            "foodPrice": 1250,
+          },
+          "2": Object {
+            "foodName": "Turkey Wings",
+            "foodPrice": 950,
+          },
+        }
+      }
+      checkout={[Function]}
+      fetching={
+        Object {
+          "errorMessage": "",
+          "fetching": false,
+        }
+      }
+      removeFromCart={[Function]}
     >
-      <CheckOutCard
-        buttonCallback={[Function]}
-        foodName="Sweet food"
-        foodPrice={829}
-        id={1}
-        key="1"
+      <div
+        className="wrapper"
       >
+        <h2>
+          Items To Be Purchased
+        </h2>
+        <section
+          className="container checkout"
+        >
+          <CheckOutCard
+            buttonCallback={[Function]}
+            foodName="Tasty Prawns"
+            foodPrice={1250}
+            id={1}
+            key="1"
+          >
+            <div
+              className="food-card-checkout"
+              data-foodid={1}
+            >
+              <div
+                className="food-card-checkout__details"
+              >
+                <h4>
+                  Tasty Prawns
+                </h4>
+                <p>
+                  ₦
+                  1250
+                </p>
+              </div>
+              <button
+                onClick={[Function]}
+                type="button"
+              >
+                Remove
+              </button>
+            </div>
+          </CheckOutCard>
+          <CheckOutCard
+            buttonCallback={[Function]}
+            foodName="Turkey Wings"
+            foodPrice={950}
+            id={2}
+            key="2"
+          >
+            <div
+              className="food-card-checkout"
+              data-foodid={2}
+            >
+              <div
+                className="food-card-checkout__details"
+              >
+                <h4>
+                  Turkey Wings
+                </h4>
+                <p>
+                  ₦
+                  950
+                </p>
+              </div>
+              <button
+                onClick={[Function]}
+                type="button"
+              >
+                Remove
+              </button>
+            </div>
+          </CheckOutCard>
+        </section>
         <div
-          className="food-card-checkout"
-          data-foodid={1}
+          className="order-price"
         >
-          <div
-            className="food-card-checkout__details"
-          >
-            <h4>
-              Sweet food
-            </h4>
-            <p>
-              ₦
-              829
-            </p>
-          </div>
-          <button
-            onClick={[Function]}
-            type="button"
-          >
-            Remove
-          </button>
+          <p>
+            <strong>
+              total price
+            </strong>
+            : ₦
+            <span
+              id="order-price"
+            >
+              2,200
+            </span>
+          </p>
         </div>
-      </CheckOutCard>
-      <CheckOutCard
-        buttonCallback={[Function]}
-        foodName="Ugly plantain"
-        foodPrice={129}
-        id={2}
-        key="2"
-      >
-        <div
-          className="food-card-checkout"
-          data-foodid={2}
+        <button
+          className="btn-primary"
+          id="checkout"
+          onClick={[Function]}
+          type="button"
         >
-          <div
-            className="food-card-checkout__details"
-          >
-            <h4>
-              Ugly plantain
-            </h4>
-            <p>
-              ₦
-              129
-            </p>
-          </div>
-          <button
-            onClick={[Function]}
-            type="button"
-          >
-            Remove
-          </button>
-        </div>
-      </CheckOutCard>
-    </section>
-    <div
-      className="order-price"
-    >
-      <p>
-        <strong>
-          total price
-        </strong>
-        : ₦
-        <span
-          id="order-price"
-        >
-          958
-        </span>
-      </p>
-    </div>
-    <button
-      className="btn-primary"
-      id="checkout"
-      onClick={[Function]}
-      type="button"
-    >
-      Checkout
-    </button>
-  </div>
-</Cart>
+          Checkout
+        </button>
+      </div>
+    </Cart>
+  </Connect(Cart)>
+</Provider>
 `;

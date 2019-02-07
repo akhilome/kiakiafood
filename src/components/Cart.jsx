@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import CheckOutCard from './CheckOutCard';
 import { removeFromCart, checkout } from '../actions';
 
-export class Cart extends Component {
+class Cart extends Component {
   onCheckoutClick = async () => {
     const { cart, checkout: placeOrder, history } = this.props;
     const foodItems = Object.keys(cart).map(Number);
